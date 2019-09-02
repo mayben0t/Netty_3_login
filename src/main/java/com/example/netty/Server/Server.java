@@ -17,7 +17,7 @@ public class Server {
         ServerBootstrap serverBootstrap = new ServerBootstrap();
         serverBootstrap.group(g1,g2)
                     .channel(NioServerSocketChannel.class)
-                    .childOption(ChannelOption.SO_BACKLOG,1)
+                    .option(ChannelOption.SO_BACKLOG,1024)
                     .childOption(ChannelOption.SO_KEEPALIVE,true)
                     .childOption(ChannelOption.TCP_NODELAY,true)
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {
