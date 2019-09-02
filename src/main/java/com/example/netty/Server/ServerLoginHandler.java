@@ -31,6 +31,8 @@ public class ServerLoginHandler extends ChannelInboundHandlerAdapter {
             try {
                 if (decode.getUserName().equals("admin") && decode.getPassword().equals("123456")) {
                     response.writeBytes("success".getBytes(Charset.forName("utf-8")));
+                }else {
+                    response.writeBytes("false".getBytes(Charset.forName("utf-8")));
                 }
             } catch (Exception e) {
                 response.writeBytes("false".getBytes(Charset.forName("utf-8")));
