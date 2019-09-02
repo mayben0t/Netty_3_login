@@ -7,5 +7,5 @@ import io.netty.buffer.ByteBuf;
  */
 public abstract class DecodeUtil {
 
-    public abstract <T> T decode(ByteBuf byteBuf,Class clazz);
+    public abstract <T> T decode(ByteBuf byteBuf,Class<T> clazz);
 }

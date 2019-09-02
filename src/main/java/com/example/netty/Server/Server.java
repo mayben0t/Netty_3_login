@@ -23,8 +23,16 @@ public class Server {
                     .childHandler(new ChannelInitializer<NioSocketChannel>() {
                         @Override
                         protected void initChannel(NioSocketChannel ch) throws Exception {
-                            ch.pipeline().addLast();
+                            ch.pipeline().addLast(new ServerLoginHandler());
                         }
                     });
+
+        serverBootstrap.bind(7777).addListener(future -> {
+            if(future.isSuccess()){
+                System.out.println("7777绑定成功");
+            }else {
+                System.out.println("服务器启动失败");
+            }
+        });
     }
 }
